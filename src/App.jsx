@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {v4} from 'uuid';
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-
+import firebase from './firebase/firebase'
 import Header from './components/Header';
 import AddTransaction from './components/AddTransaction';
 import Balance from './components/Balance';
@@ -14,39 +14,27 @@ import './App.css';
 
 export default class App extends Component {
   state = {
-    transactions: []
+    transactions: [],
+    image :''
   }
 
   loadData = () => {
     // get data from variable
-    const data = [ 
-      {
-        id: v4(),
-        name: 'Dinner with family',
-        amount: -1250,
-        date: new Date(2020,1,28)
-      },
-      {
-        id: v4(),
-        name: 'Movie',
-        amount: -200,
-        date: new Date(2020,1,29)
-      },
-      {
-        id: v4(),
-        name: 'Lottery',
-        amount: 1500,
-        date: new Date(2020,2,2)
-      },
-      {
-        id: v4(),
-        name: 'Salary',
-        amount: 6500,
-        date: new Date(2020,1,25)
-      }
-    ];
-
-    this.setState( { transactions: data } );
+    // let data = []
+    // this.setState( { transactions: [] } );
+    firebase.firestore().collection('transaction').orderBy('date').onSnapshot(doc => {
+      const data = []
+      doc.forEach(item => {
+        data.push({
+          id:item.id,
+          name:item.data().name,
+          amount:item.data().amount,
+          date:item.data().date
+        })
+    })
+    this.setState( {  transactions: data.reverse() })
+    
+  })
   }
 
   loadJsonData = () => {
@@ -59,9 +47,10 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    // this.loadData();   // load data from variable
-    this.loadJsonData();  // load data from JSON file on server
+    this.loadData();   // load data from variable
+    // this.loadJsonData();  // load data from JSON file on server
     // this.loadFirebase(); // load data from Firebase
+    // firebase.storage().ref('78086851_3275910665771900_5907486477788381184_o.jpg').getDownloadURL().
   }
 
   validateForm = (name,amount) => {
@@ -75,6 +64,10 @@ export default class App extends Component {
       window.alert('Amount CANNOT be zero!');
       return false;
     }
+    else if(!Number.isInteger(Number(amount))){
+      window.alert('Amount CANNOT be float !')
+      return false
+    }
   
     return true;
   }
@@ -87,11 +80,11 @@ export default class App extends Component {
 
     const newTransaction = {
       id: v4(),
-      name,
+      name: name,
       amount: +amount,
-      date: new Date()
+      date: new Date().toISOString()
     }
-
+    firebase.firestore().collection('transaction').add(newTransaction)
     this.state.transactions.unshift(newTransaction);
     this.setState( { transactions: this.state.transactions } );
   }
@@ -99,6 +92,11 @@ export default class App extends Component {
   clearTransactions = () => {
     let ans = window.confirm("You are going to clear all transaction history!!!")
     if (ans) {
+      firebase.firestore().collection('transaction').onSnapshot(doc =>{
+        doc.forEach(item => {
+          firebase.firestore().collection('transaction').doc(item.id).delete()
+        })
+      })
       this.setState( { transactions: [] } );
     }
   }
