@@ -55,17 +55,17 @@ export default class App extends Component {
 
   validateForm = (name,amount) => {
     if (!name || !amount) {
-      window.alert('Please fill in ALL data fields.');
+      window.alert('Please fill the data');
       return false;
     } else if ( !isNaN(name)) {
-      window.alert('Please fill only TEXT detail in transaction name.');
+      window.alert('Transaction name can be just text type');
       return false;
     } else if (+amount === 0) {
-      window.alert('Amount CANNOT be zero!');
+      window.alert('Amount cannot be zero!');
       return false;
     }
     else if(!Number.isInteger(Number(amount))){
-      window.alert('Amount CANNOT be float !')
+      window.alert('Amount cannot be float !')
       return false
     }
   
