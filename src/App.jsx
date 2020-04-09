@@ -3,12 +3,12 @@ import {v4} from 'uuid';
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import firebase from './firebase/firebase'
-import Header from './components/Header';
+import Header from './components/Navbar';
 import AddTransaction from './components/AddTransaction';
 import Balance from './components/Balance';
 import IncomeExpense from './components/IncomeExpense';
 import TransactionTable from './components/TransactionTable';
-import About from './components/About';
+import About from './components/Aboutt';
 
 import './App.css';
 

@@ -20,31 +20,33 @@ export default class AddTransaction extends Component {
   render() {
     return (
       <div>
+        <label htmlFor="username">Perawit Khasak</label>
         <form id="add-transaction_form" onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label htmlFor="name">Transaction Name:</label>
+            
+            <label htmlFor="name">Your meal:</label>
             <input 
               type="text" 
               name="name" 
               className="form-control" 
-              placeholder="Expense detail ..."
+              placeholder="อาหารที่คุณรับทาน"
               onChange={this.onChange}
               value={this.state.name}
             />
           </div>
           <div className="form-group">
-            <label htmlFor="amount">Amount (+:income / -:expense)</label>
+            <label htmlFor="amount">Calories</label>
             <input 
               type="number" 
               name="amount" 
               className="form-control" 
-              placeholder="0.00"
+              placeholder="จำนวนแคลลอรี่"
               onChange={this.onChange} 
               value={this.state.amount}
             />
           </div>
 
-          <input type="submit" value="Add Transaction" className="btn btn-primary btn-block"/>
+          <input type="submit" value="บันทึกข้อมูล" className="btn btn-info btn-block mainblackground"/>
         </form>
       </div>
     )
