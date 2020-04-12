@@ -13,13 +13,13 @@ export default function TransactionTable() {
       <table className="table table-striped mt-3">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Amount</th>
+            <th>Meal</th>
+            <th>Calories</th>
             <th>Type</th>
-            <th>Date</th>
+            <th>Time</th>
           </tr>
         </thead>
-        <tbody id="transaction-list">
+        <tbody id="calories-list">
         
         </tbody>
       </table>
