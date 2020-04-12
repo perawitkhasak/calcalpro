@@ -17,8 +17,8 @@ export default class Addcal extends Component {
           <h2 class="text-white mb-5">Diay of date ..</h2>
 
           <form class="form-inline d-flex">
-            <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Your meal.."/>
-            <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Calories.."/>
+            <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Your meal.."/>
+            <input type="number" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Calories.."/>
             <button type="submit" class="btn btn-primary mx-auto">Save</button>
             <div class="col-md-10 col-lg-8 mx-auto text-center pt-5">
             <i class="fas fa-utensil-spoon fa-3x text-white"></i><h4 class="text-white">Today Calories left</h4>
