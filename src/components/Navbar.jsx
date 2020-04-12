@@ -30,7 +30,9 @@ export default function Header() {
             </Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#signup">Sign in</a>
+          <Link to="/login">
+            <a class="nav-link js-scroll-trigger" href="#login">Sign in</a>
+            </Link>
           </li>
         </ul>
       </div>

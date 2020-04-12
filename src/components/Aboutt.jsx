@@ -20,7 +20,7 @@ export default function About() {
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-left">
                 <h4 class="text-white">Perawit Khasak 610610603</h4>
-                <p class="mb-0 text-white-50">Manager FC</p>
+                <p class="mb-0 text-white-50">Web developer</p>
                 <hr class="d-none d-lg-block mb-0 ml-0"/>
               </div>
             </div>
@@ -38,7 +38,7 @@ export default function About() {
     <div class="d-flex h-100">
       <div class="project-text w-100 my-auto text-center text-lg-right">
         <h4 class="text-white">Siwakorn Sae-ooi 610610616</h4>
-        <p class="mb-0 text-white-50">Goal Keeper</p>
+        <p class="mb-0 text-white-50">Web developer</p>
         <hr class="d-none d-lg-block mb-0 mr-0"/>
       </div>
     </div>
@@ -54,8 +54,8 @@ export default function About() {
   <div class="bg-black text-center h-100 project">
     <div class="d-flex h-100">
       <div class="project-text w-100 my-auto text-center text-lg-left">
-        <h4 class="text-white">Pacharapol Nakwisut 610610603</h4>
-        <p class="mb-0 text-white-50">King</p>
+        <h4 class="text-white">Pacharapol Nakwisut 610610703</h4>
+        <p class="mb-0 text-white-50">Web developer</p>
         <hr class="d-none d-lg-block mb-0 ml-0"/>
       </div>
     </div>
